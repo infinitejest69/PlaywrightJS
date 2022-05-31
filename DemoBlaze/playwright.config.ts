@@ -20,7 +20,10 @@ const config: PlaywrightTestConfig = {
      * For example in `await expect(locator).toHaveText();`
      */
     timeout: 5000,
+    toHaveScreenshot: { maxDiffPixels: 100 },
   },
+  // Limit the number of failures on CI to save resources
+  maxFailures: process.env.CI ? 10 : undefined,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -40,6 +43,9 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
     baseURL: "https://demoblaze.com/",
     trace: "retain-on-failure",
+    channel: "chrome",
+    screenshot: "only-on-failure",
+    //storageState: "state.json",
   },
 
   /* Configure projects for major browsers */
