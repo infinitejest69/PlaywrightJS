@@ -1,5 +1,5 @@
-import type { PlaywrightTestConfig } from "@playwright/test";
-import { devices } from "@playwright/test";
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -11,7 +11,7 @@ import { devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: "./tests",
+  testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -33,41 +33,41 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [["html"]],
+  reporter: [['html']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: true,
+    headless: false,
     viewport: { width: 1920, height: 1080 },
     ignoreHTTPSErrors: true,
-    video: "retain-on-failure",
+    video: 'retain-on-failure',
     actionTimeout: 0,
-    baseURL: "https://demoblaze.com/",
-    trace: "retain-on-failure",
-    channel: "chrome",
-    screenshot: "only-on-failure",
+    baseURL: 'https://demoblaze.com/',
+    trace: 'retain-on-failure',
+    channel: 'chrome',
+    screenshot: 'only-on-failure',
     //storageState: "state.json",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
 
     {
-      name: "firefox",
+      name: 'firefox',
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices['Desktop Firefox'],
       },
     },
 
     {
-      name: "webkit",
+      name: 'webkit',
       use: {
-        ...devices["Desktop Safari"],
+        ...devices['Desktop Safari'],
       },
     },
 
@@ -101,7 +101,7 @@ const config: PlaywrightTestConfig = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: "test-results/",
+  outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {
