@@ -1,11 +1,9 @@
 import { Page } from '@playwright/test';
 import Navbar from '../ComponentModels/navbar.component';
+import LoginDialog from '../ComponentModels/Logindialog.component';
+import { BasePage } from './BasePage.Page';
 
-export default class HomePage {
-  private page: Page;
-  constructor(page: Page) {
-    this.page = page;
-  }
-
-  navbar = () => new Navbar(this.page);
+export default class HomePage extends BasePage {
+  navbar = new Navbar(this.page);
+  loginDialog = new LoginDialog(this.page);
 }

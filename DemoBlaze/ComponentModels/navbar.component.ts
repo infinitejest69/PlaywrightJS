@@ -5,11 +5,27 @@ export default class Navbar {
   constructor(page: Page) {
     this.page = page;
   }
-  ButtonHome = async () => this.page.locator(".nav-link:has-text('Home')");
-  ButtonContact = async () => this.page.locator(".nav-link:has-text('Contact')");
-  ButtonAbout = async () => this.page.locator(".nav-link:has-text('About')");
-  ButtonCart = async () => this.page.locator(".nav-link:has-text('Cart')");
-  ButtonLogIn = async () => this.page.locator("a:has-text('Log in')");
-  ButtonLogOut = async () => this.page.locator("a:has-text('Log out')");
-  ButtonSignUp = async () => this.page.locator("a:has-text('Sign up')");
+  private ButtonHome = async () => this.page.locator(".nav-link:has-text('Home')");
+  private ButtonContact = async () => this.page.locator(".nav-link:has-text('Contact')");
+  private ButtonAbout = async () => this.page.locator(".nav-link:has-text('About')");
+  private ButtonCart = async () => this.page.locator(".nav-link:has-text('Cart')");
+  private ButtonLogIn = async () => this.page.locator("a:has-text('Log in')");
+  private ButtonLogOut = async () => this.page.locator("a:has-text('Log out')");
+  private ButtonSignUp = async () => this.page.locator("a:has-text('Sign up')");
+
+  clickButtonHome = async () => (await this.ButtonHome()).click();
+  clickButtonContact = async () => (await this.ButtonContact()).click();
+  clickButtonAbout = async () => (await this.ButtonAbout()).click();
+  clickButtonCart = async () => (await this.ButtonCart()).click();
+  clickButtonLogIn = async () => (await this.ButtonLogIn()).click();
+  clickButtonLogOut = async () => (await this.ButtonLogOut()).click();
+  clickButtonSignUp = async () => (await this.ButtonSignUp()).click();
+
+  isButtonHomeVisible = async () => (await this.ButtonHome()).isVisible();
+  isButtonContactVisible = async () => (await this.ButtonContact()).isVisible();
+  isButtonAboutVisible = async () => (await this.ButtonAbout()).isVisible();
+  isButtonCartVisible = async () => (await this.ButtonCart()).isVisible();
+  isButtonLogInVisible = async () => (await this.ButtonLogIn()).isVisible();
+  isButtonLogOutVisible = async () => (await this.ButtonLogOut()).isVisible();
+  isButtonSignUpVisible = async () => (await this.ButtonSignUp()).isVisible();
 }

@@ -5,6 +5,6 @@ test('Visual test', async ({ page }) => {
   await expect(page).toHaveScreenshot('DemoBlazeHome.png', {
     animations: 'disabled',
     fullPage: true,
-    threshold: 1,
+    threshold: 0.2,
   });
 });

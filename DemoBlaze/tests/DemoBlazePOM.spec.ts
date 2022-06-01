@@ -7,14 +7,10 @@ test.beforeEach(async ({ page }) => {
 
 test('Can Login in', async ({ page }) => {
   let Home = new HomePage(page);
-
-  (await Home.navbar().ButtonLogIn()).click();
-  //await HomePage.navbar(page).login();
-  await page.locator('a:has-text("Log in")').click();
-  await page.locator('text=Log in × Username: Password: Close Log in >> input[type="text"]').click();
-  await page.locator('text=Log in × Username: Password: Close Log in >> input[type="text"]').fill('admin');
-  await page.locator('text=Log in × Username: Password: Close Log in >> input[type="text"]').press('Tab');
-  await page.locator('text=Log in × Username: Password: Close Log in >> input[type="password"]').fill('admin');
-  await Promise.all([page.waitForNavigation(/*{ url: 'https://demoblaze.com/' }*/), page.locator('button:has-text("Log in")').click()]);
-  await expect(page.locator('a:has-text("Log out")').first()).toBeVisible();
+  await Home.navbar.clickButtonLogIn();
+  await Home.loginDialog.fillInputUserName('admin');
+  await Home.loginDialog.fillInputPassword('admin');
+  await Home.loginDialog.clickButtonLogin();
+  await Promise.all([page.waitForNavigation(), Home.loginDialog.clickButtonLogin()]);
+  expect(await Home.navbar.isButtonLogOutVisible()).toBe(true);
 });
