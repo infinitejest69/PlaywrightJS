@@ -14,4 +14,6 @@ export default class LoginDialog {
   fillInputPassword = async (value: string) => (await this.InputPassword()).fill(value);
   clickButtonLogin = async () => (await this.ButtonLogin()).click();
   clickButtonClose = async () => (await this.ButtonClose()).click();
+
+  isOpen = async () => (await this.ButtonLogin()).isVisible();
 }

@@ -28,4 +28,7 @@ export default class Navbar {
   isButtonLogInVisible = async () => (await this.ButtonLogIn()).isVisible();
   isButtonLogOutVisible = async () => (await this.ButtonLogOut()).isVisible();
   isButtonSignUpVisible = async () => (await this.ButtonSignUp()).isVisible();
+
+  waitButtonLogOut = async () => (await this.ButtonLogOut()).waitFor();
+  waitButtonLogIn = async () => (await this.ButtonLogIn()).waitFor();
 }
